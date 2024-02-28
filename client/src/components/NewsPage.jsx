@@ -6,6 +6,8 @@ export default function NewsPage() {
     const [input, setInput]= useState([])
     const location = useLocation()
     const formData = location.state?.formData ??{}
+    const URL= "https://database-driven-full-stack-react-express-app-kyor.vercel.app"||`http://localhost:9663`
+
 
     useEffect(() => {
         getUsersDb()
@@ -24,14 +26,14 @@ export default function NewsPage() {
         </div>
     ))
     async function getUsersDb() {
-        let data = await fetch(`http://localhost:9663/news`)
+        let data = await fetch(`${URL}/news`)
 
         let result = await data.json()
         setInput(result)
     }
 
     async function handleDelete(id) {
-        let result = await fetch (`http://localhost:9663/news/${id}`, {
+        let result = await fetch (`${URL}/news/${id}`, {
             method: "DELETE"
         })
          console.log(result)

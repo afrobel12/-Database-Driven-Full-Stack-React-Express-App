@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import {useNavigate} from "react-router-dom"
 
 export default function FormPage() {
+    const URL= "https://database-driven-full-stack-react-express-app-kyor.vercel.app"||`http://localhost:9663`
     const [formData, setFormData] = 
     useState({
         title: '',
@@ -21,13 +22,13 @@ export default function FormPage() {
 
     }
     async function getUsersDb() {
-        let data = await fetch(`http://localhost:9663/entertainment` && `http://localhost:9663/entertainment`)
+        let data = await fetch(`${URL}/entertainment`)
         let result = await data.json()
         setFormData(result)
     }
     async function handlSubmit(e) {
         e.preventDefault()
-        let result = await fetch(`http://localhost:9663/entertainment` && `http://localhost:9663/news` ,{
+        let result = await fetch(`${URL}/news` ,{
             method: 'POST',
             headers: {
                 "content-type": "application/json"
