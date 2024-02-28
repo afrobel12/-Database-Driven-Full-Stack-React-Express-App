@@ -7,6 +7,8 @@ export default function DisplayPage() {
     const [input, setInput]= useState([])
     const location = useLocation()
     const formData = location.state?.formData ??{}
+    const URL= "https://database-driven-full-stack-react-express-app-kyor.vercel.app"||`http://localhost:9663`
+
 
   
     useEffect(() => {
@@ -27,14 +29,14 @@ export default function DisplayPage() {
         </div>
     ))
     async function getUsersDb() {
-        let data = await fetch(`http://localhost:9663/entertainment`)
+        let data = await fetch(`${URL}/entertainment`)
 
         let result = await data.json()
         setInput(result)
     }
 
     async function handleDelete(id) {
-        let result = await fetch (`http://localhost:9663/entertainment/${id}` ,{
+        let result = await fetch (`${URL}/entertainment/${id}` ,{
             method: 'DELETE'
         })
          console.log(result)
