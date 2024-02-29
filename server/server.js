@@ -12,7 +12,7 @@ export const db = new pg.Pool({
     connectionString: process.env.DATABASE_URL
 })
 
-const PORT= "9663"
+const PORT= " https://database-driven-full-stack-react-express.onrender.com" || "9664"
 app.listen(PORT, () => {
     console.log(`server is running on : ${PORT}`)
 })

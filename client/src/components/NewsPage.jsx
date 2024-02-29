@@ -6,7 +6,7 @@ export default function NewsPage() {
     const [input, setInput]= useState([])
     const location = useLocation()
     const formData = location.state?.formData ??{}
-    const URL= "https://database-driven-full-stack-react-express-app-kyor.vercel.app"||`http://localhost:9663`
+    const URL= "https://database-driven-full-stack-react-express.onrender.com"||`http://localhost:9663`
 
 
     useEffect(() => {
